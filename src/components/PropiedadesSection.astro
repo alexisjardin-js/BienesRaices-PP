@@ -1,0 +1,17 @@
+---
+import { propiedades } from '../data/propiedades';
+import CardCarrusel from './CardCarrusel.astro';
+
+const carouselPropiedades = [...propiedades, ...propiedades];
+---
+
+<section>
+  <div class="text-center my-10 text-4xl font-bold">
+    <h2 class="text-[#1C2D37]">Nuestras Propiedades</h2>
+  </div>
+  <article class="overflow-hidden">
+    <div class="flex whitespace-nowrap animate-scroll">
+      {carouselPropiedades.map((propiedad) => <CardCarrusel propiedad={propiedad} />)}
+    </div>
+  </article>
+</section>
