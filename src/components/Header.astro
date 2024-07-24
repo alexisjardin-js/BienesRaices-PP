@@ -1,0 +1,69 @@
+<header id="nav-bar" class="fixed flex w-full justify-between px-12 h-28 items-center bg-[#1C2D37]">
+  <div>
+    <a href="/">
+      <img src="/img/logo-white.svg" alt="logo" />
+    </a>
+  </div>
+  <nav class="flex flex-wrap gap-5">
+    <a class="underline-animated" href="/">Propiedades</a>
+    <a class="underline-animated" href="/">Soluciones</a>
+    <a class="underline-animated" href="/">Nuestros Clientes</a>
+    <a class="underline-animated" href="/">Quienes Somos</a>
+    <a class="underline-animated" href="/">Contacto</a>
+  </nav>
+</header>
+
+<style>
+  #nav-bar {
+    z-index: 1;
+    animation: blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 500px;
+  }
+
+  @keyframes blur {
+    to {
+      color: white;
+      box-shadow:
+        0px 5px 50px -5px hsla(0, 0%, 100%, 0.1),
+        0px 0px 0px 1px hsla(0, 0%, 100%, 0.1);
+      background: rgba(0, 0, 0, 0.58);
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  @keyframes underlineAnimation {
+    from {
+      width: 0;
+      opacity: 0;
+    }
+    to {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
+  .underline-animated {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .underline-animated::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px; /* Altura del subrayado */
+    background-color: currentColor; /* Usa el color del texto */
+    width: 100%;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: bottom left;
+  }
+
+  .underline-animated:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+</style>
