@@ -1,0 +1,16 @@
+---
+import Mas from './icon/Mas.astro';
+
+const { propiedades, imagen } = Astro.props;
+---
+
+<div class=`absolute ${propiedades} rounded-3xl overflow-hidden mb-4 float-animation group`>
+  <Mas
+    class="absolute inset-0 m-auto size-5 z-10 opacity-0 transform scale-0 group-hover:opacity-100 group-hover:scale-150 transition-transform duration-300"
+  />
+  <img
+    class="group-hover:brightness-50 hover"
+    src={`/img/propiedades/propiedad-${imagen}.png`}
+    alt="propiedad"
+  />
+</div>

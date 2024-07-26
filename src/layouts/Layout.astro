@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/img/logo-white.svg" />
     <meta name="generator" content={Astro.generator} />
-    <script src="../lib/counter.js"></script>
+    <script src="../lib/scripts.js"></script>
     <title>{title}</title>
   </head>
   <body>
@@ -31,6 +31,7 @@ const { title, description } = Astro.props;
     color: white;
     background: #a4b5ba;
     background-size: 224px;
+    scroll-behavior: smooth;
   }
   @keyframes scroll {
     0% {
@@ -46,5 +47,21 @@ const { title, description } = Astro.props;
   }
   .animate-scroll:hover {
     animation-play-state: paused;
+  }
+
+  /* Definición de los keyframes para la animación de flotación */
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Clase para aplicar la animación de flotación */
+  .float-animation {
+    animation: float 2s ease-in-out infinite;
   }
 </style>

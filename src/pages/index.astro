@@ -1,8 +1,9 @@
 ---
-import HeroSection from '../components/HeroSection.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
 import Layout from '../layouts/Layout.astro';
-import PropiedadesSection from '../components/PropiedadesSection.astro';
-import CounterSection from '../components/CounterSection.astro';
+import PropiedadesSection from '../components/sections/PropertiesSection.astro';
+import CounterSection from '../components/sections/CounterSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
 ---
 
 <Layout
@@ -11,8 +12,9 @@ import CounterSection from '../components/CounterSection.astro';
 >
   <main>
     <HeroSection />
-    <PropiedadesSection />
+    <PropiedadesSection id="properties" />
     <CounterSection />
+    <AboutSection id="about" />
     <div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dicta fuga eius sunt

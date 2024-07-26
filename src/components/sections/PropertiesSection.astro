@@ -1,12 +1,14 @@
 ---
-import { propiedades } from '../data/propiedades';
-import CardCarrusel from './CardCarrusel.astro';
+import { propiedades } from '../../data/propiedades';
+import CardCarrusel from '../CardCarrusel.astro';
+
+const { id } = Astro.props;
 
 const carouselPropiedades = [...propiedades, ...propiedades];
 ---
 
-<section>
-  <div class="text-center my-10 text-4xl font-bold">
+<section id={id} class="pt-32">
+  <div class="text-center text-4xl mb-16 font-bold">
     <h2 class="text-[#1C2D37]">Nuestras Propiedades</h2>
   </div>
   <article class="overflow-hidden">

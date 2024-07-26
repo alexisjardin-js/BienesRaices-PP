@@ -1,3 +1,4 @@
+///counter
 document.addEventListener('DOMContentLoaded', () => {
   const contenedores = document.querySelectorAll('.flex.flex-col.text-center.gap-2');
 
@@ -37,5 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   contenedores.forEach((contenedor) => {
     observer.observe(contenedor);
+  });
+});
+
+///random flotante
+document.addEventListener('DOMContentLoaded', () => {
+  const images = document.querySelectorAll('.float-animation');
+
+  images.forEach((img) => {
+    const delay = (Math.random() * 1).toFixed(2); // Retraso entre 0s y 1s
+
+    img.style.animationDuration = `3s`;
+    img.style.animationDelay = `${delay}s`;
   });
 });

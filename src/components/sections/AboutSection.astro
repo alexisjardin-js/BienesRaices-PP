@@ -1,0 +1,44 @@
+---
+import CardFlotante from '../CardFlotante.astro';
+import ArrowRight from '../icon/ArrowRight.astro';
+
+const { id } = Astro.props;
+---
+
+<section id={id} class="flex justify-center bg-[#1C2D37] h-[800px] mt-20 relative">
+  <div class="flex flex-col text-center items-center w-[500px] gap-2 mt-20">
+    <div class="border border-x-0 italic font"><span>Sobre nosotros</span></div>
+
+    <h3 class="text-6xl font-semibold">Nuestra Historia</h3>
+    <p>
+      Conoce nuestra historia y como fue que una empresa de 10 empleados se convirtio en mas de 800
+      al rededor del pais, descubre que nos hace diferentes y porque la gente confia en nosotros...
+    </p>
+    <span
+      class="flex gap-2 mt-5 border border-white text-xl items-center rounded-xl px-4 py-2 font-semibold hover:bg-white hover:text-black"
+    >
+      Detalles
+      <ArrowRight class="size-5" />
+    </span>
+  </div>
+  <CardFlotante propiedades="w-[300px] h-[200px] top-6 left-4" imagen="1" />
+  <CardFlotante propiedades="w-[300px] h-[200px] top-20 right-4" imagen="2" />
+  <CardFlotante propiedades="w-[300px] h-[200px] bottom-20 right-4" imagen="3" />
+  <CardFlotante propiedades="w-[300px] h-[200px] bottom-40 left-4" imagen="4" />
+  <CardFlotante propiedades="w-[400px] h-[300px] bottom-16" imagen="3" />
+  <div class="size-44 absolute top-72 left-4">
+    <img class="float-animation" src="/img/icon/section_shape_2_3.jpg" alt="cubo" />
+  </div>
+  <div class="size-44 absolute top-72 right-4">
+    <img class="float-animation" src="/img/icon/section_shape_2_1.jpg" alt="cubo" />
+  </div>
+  <div class="size-44 absolute top-72 right-96">
+    <img class="float-animation" src="/img/icon/section_shape_2_2.jpg" alt="cubo" />
+  </div>
+  <div class="size-44 absolute bottom-0 left-60">
+    <img class="float-animation" src="/img/icon/section_shape_2_2.jpg" alt="cubo" />
+  </div>
+  <div class="size-44 absolute -bottom-16 right-4">
+    <img class="float-animation" src="/img/icon/section_shape_2_3.jpg" alt="cubo" />
+  </div>
+</section>

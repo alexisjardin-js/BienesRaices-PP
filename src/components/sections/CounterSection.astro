@@ -1,0 +1,36 @@
+---
+import CounterElement from '../CounterElement.astro';
+
+const detalles = [
+  {
+    cantidad: 200,
+    nombre: 'Casas en venta',
+  },
+  {
+    cantidad: 300,
+    nombre: 'Casas en alquiler',
+  },
+  {
+    cantidad: 150,
+    nombre: 'Sucursales en el pais',
+  },
+  {
+    cantidad: 90,
+    nombre: 'Visitas diarias',
+  },
+  {
+    cantidad: 500,
+    nombre: 'Clientes mensuales Satisfechos',
+  },
+  {
+    cantidad: 150,
+    nombre: 'Visitas a la Web diarias',
+  },
+];
+---
+
+<section class="flex justify-center bg-[#1C2D37] h-[430px] w-full mt-20 items-center">
+  <div class="grid grid-cols-3 grid-rows-2 gap-28 p-4">
+    {detalles.map((detalle) => <CounterElement detalle={detalle} />)}
+  </div>
+</section>

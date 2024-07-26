@@ -1,0 +1,29 @@
+---
+const { detalle } = Astro.props;
+---
+
+<div class="flex flex-col text-center gap-2 close">
+  <div class="flex items-center">
+    <span class="text-6xl font-bold">+</span>
+    <div class="text-6xl font-bold counter" data-cantidad-total={detalle.cantidad}>0</div>
+  </div>
+  <p class="font-semibold">{detalle.nombre}</p>
+</div>
+<style>
+  @keyframes show {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .close {
+    opacity: 0;
+  }
+  .animar {
+    animation: show 1.3s;
+  }
+</style>
