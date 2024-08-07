@@ -1,6 +1,6 @@
 ---
-import { propiedades } from '../../data/propiedades';
-import CardCarrusel from '../CardCarrusel.astro';
+import { propiedades } from "../../data/propiedades";
+import CardCarrusel from "../CardCarrusel.astro";
 
 const { id } = Astro.props;
 
@@ -9,11 +9,36 @@ const carouselPropiedades = [...propiedades, ...propiedades];
 
 <section id={id} class="pt-32">
   <div class="text-center text-4xl mb-16 font-bold">
-    <h2 class="text-[#1C2D37]">Nuestras Propiedades</h2>
+    <h3 class="text-[#1C2D37] text-6xl font-semibold">
+      Nuestras <span class="font-light">Propiedades</span>
+    </h3>
   </div>
   <article class="overflow-hidden">
     <div class="flex whitespace-nowrap animate-scroll">
-      {carouselPropiedades.map((propiedad) => <CardCarrusel propiedad={propiedad} />)}
+      {
+        carouselPropiedades.map((propiedad) => (
+          <CardCarrusel propiedad={propiedad} />
+        ))
+      }
     </div>
   </article>
 </section>
+<style>
+  /* carrusel */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-400px * 5 - 0.5rem * 10));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+  /*  fin carrusel */
+</style>

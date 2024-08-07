@@ -1,14 +1,19 @@
 ---
 const { propiedad } = Astro.props;
-import ArrowRight from './icon/ArrowRight.astro';
-import Area from './icon/Area.astro';
-import Cama from './icon/Cama.astro';
-import Ducha from './icon/Ducha.astro';
+import ArrowRight from "./icon/ArrowRight.astro";
+import Area from "./icon/Area.astro";
+import Cama from "./icon/Cama.astro";
+import Ducha from "./icon/Ducha.astro";
+import Pin from "./icon/Pin.astro";
 ---
 
 <div id="carousel" class="h-full w-[400px] m-2 flex-shrink-0 cursor-pointer">
   <div class="rounded-3xl overflow-hidden mb-4 h-[250px] img-brillo">
-    <img src={`/img/propiedades/propiedad-${propiedad.id}.png`} alt={propiedad.id} />
+    <img
+      class="size-[100%] object-cover absolute top-0 left-0"
+      src={`/img/propiedades/propiedad-${propiedad.id}.png`}
+      alt={propiedad.id}
+    />
     <span
       class="absolute flex gap-2 top-3 left-4 border border-white text-xs rounded-xl px-4 py-2 font-semibold hover:bg-white hover:text-black"
     >
@@ -16,23 +21,23 @@ import Ducha from './icon/Ducha.astro';
       <ArrowRight />
     </span>
   </div>
-  <div class="p-4 flex flex-col gap-4">
-    <div class="flex gap-4 border-b-[1px] border-gray-400 pb-5">
-      <div class="flex gap-2">
+  <div class="flex flex-col gap-4">
+    <div class="gap-4 border-b-[1px] border-gray-400">
+      <div class="flex items-center gap-2">
         <Cama class="text-slate-700 size-12" />
         <h5 class="text-xs text-slate-700 leading-7 whitespace-normal">
           Habitaciones:
           <strong> {propiedad.habitaciones}</strong>
         </h5>
       </div>
-      <div class="flex gap-2">
+      <div class="flex items-center gap-2">
         <Ducha class="text-slate-700 size-12" />
         <h5 class="text-xs text-slate-700 leading-7 whitespace-normal">
           Baños:
           <strong>{propiedad.baños}</strong>
         </h5>
       </div>
-      <div class="flex gap-2">
+      <div class="flex items-center gap-2">
         <Area class="text-slate-700 size-12" />
         <h5 class="text-xs text-slate-700 leading-7 whitespace-normal">
           Superficie:
@@ -41,13 +46,24 @@ import Ducha from './icon/Ducha.astro';
       </div>
     </div>
   </div>
-  <div class="flex flex-col px-2 text-slate-700">
-    <h6 class="text-2xl capitalize font-semibold">{propiedad.tipo}</h6>
-    <span class="text-lg">${propiedad.precio} USD</span>
-    <span>{propiedad.localidad}, {propiedad.provincia}</span>
+  <div class="flex flex-col p-2 text-slate-700">
+    <h5 class="text-2xl capitalize font-semibold">
+      {propiedad.tipo}
+    </h5>
+    <h5 class="text-1xl capitalize font-semibold">
+      {propiedad.ambientes} Ambientes
+    </h5>
+    <span class="text-lg font-semibold capitalize"
+      >${propiedad.precio} USD, {propiedad.operacion}
+    </span>
+    <div class="flex gap-2">
+      <span>{propiedad.localidad}, {propiedad.provincia}</span>
+      <Pin class="size-5" />
+    </div>
   </div>
 </div>
 <style>
+  /* brillo'anim */
   .img-brillo {
     position: relative;
   }
@@ -58,10 +74,14 @@ import Ducha from './icon/Ducha.astro';
     left: -75%;
     z-index: 2;
     display: block;
-    content: '';
+    content: "";
     width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.3) 100%
+    );
     transform: skewX(-20deg);
   }
   .img-brillo img {

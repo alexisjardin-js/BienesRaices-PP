@@ -1,0 +1,67 @@
+---
+import Send from "../icon/Send.astro";
+import Email from "../icon/Email.astro";
+import User from "../icon/User.astro";
+import Messages from "../icon/Messages.astro";
+const { id } = Astro.props;
+---
+
+<section id={id} class="flex h-[700px] mt-20 pt-32 brightness-90">
+  <div
+    class="flex flex-col py-8 px-5 bg-[#1C2D37] rounded-2xl mx-8 w-[600px] h-[500px]"
+  >
+    <h2
+      class="mb-8 text-4xl tracking-tight font-extrabold text-center text-white"
+    >
+      Contactanos
+    </h2>
+    <form action="#" class="space-y-5">
+      <div class="relative">
+        <input
+          type="email"
+          id="email"
+          class="p-3 w-full text-sm rounded-2xl bg-[#1C2D37] border border-slate-400 placeholder-gray-400 text-white"
+          placeholder="example@mail.com"
+          required
+        />
+        <Email class="absolute top-3 right-3 text-slate-400" />
+      </div>
+      <div class="relative">
+        <input
+          type="text"
+          id="name"
+          class="p-3 w-full text-sm rounded-2xl bg-[#1C2D37] border border-slate-400 placeholder-gray-400 text-white"
+          placeholder="Nombre"
+          required
+        />
+        <User class="absolute top-3 right-3 text-slate-400" />
+      </div>
+      <div class="sm:col-span-2 relative">
+        <textarea
+          id="message"
+          rows="6"
+          class="p-3 w-full text-sm rounded-2xl bg-[#1C2D37] border border-slate-400 placeholder-gray-400 text-white"
+          placeholder="escribe tu mensaje..."></textarea>
+        <Messages class="absolute top-3 right-3 text-slate-400" />
+      </div>
+      <button
+        type="submit"
+        class="flex items-center py-3 px-5 gap-2 text-sm font-medium text-white rounded-3xl p-3 bg-[#1C2D37] border border-slate-400 placeholder-gray-400 hover:text-slate-700 hover:bg-white"
+        >Enviar Mensaje <Send /></button
+      >
+    </form>
+  </div>
+  <h3 class="text-slate-800 font-bold text-4xl px-2 text-pretty">
+    Nosotros gestionamos tu proyecto,tú diriges tu vida
+  </h3>
+</section>
+
+<style>
+  section {
+    background-image: url("/img/contact-bg.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
