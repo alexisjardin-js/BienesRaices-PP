@@ -1,18 +1,17 @@
-///counter
+//counter
 document.addEventListener('DOMContentLoaded', () => {
   const contenedores = document.querySelectorAll('.flex.flex-col.text-center.gap-2');
-
   const velocidad = 1000;
 
   const animarContador = (contador) => {
-    const cantidadMaxima = +contador.dataset.cantidadTotal;
+    const cantidadMaxima = parseFloat(contador.dataset.cantidadTotal) || 0;
     const incremento = cantidadMaxima / velocidad;
 
     const actualizar = () => {
-      const valorActual = +contador.innerText;
+      const valorActual = parseFloat(contador.innerText) || 0;
       if (valorActual < cantidadMaxima) {
         contador.innerText = Math.ceil(valorActual + incremento);
-        setTimeout(actualizar, 5);
+        setTimeout(actualizar, 5); // Opción: requestAnimationFrame(actualizar);
       } else {
         contador.innerText = cantidadMaxima;
       }
@@ -21,13 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizar();
   };
 
-  const mostrarContadores = (entradas) => {
+  const mostrarContadores = (entradas, observer) => {
     entradas.forEach((entrada) => {
       if (entrada.isIntersecting) {
         const contador = entrada.target.querySelector('.counter');
-        entrada.target.classList.add('animar');
-        entrada.target.classList.remove('close');
-        setTimeout(() => animarContador(contador), 300);
+        if (contador) {
+          entrada.target.classList.add('animar');
+          entrada.target.classList.remove('close');
+          setTimeout(() => animarContador(contador), 300);
+          observer.unobserve(entrada.target); // Dejar de observar el elemento una vez que se ha animado
+        }
       }
     });
   };
